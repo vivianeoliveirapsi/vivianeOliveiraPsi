@@ -27,8 +27,8 @@ header {
   width: 100%;
   padding: 3px 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   background-color: rgba(250,249,238,0.3);
   z-index: 1000;
   transition: background-color 0.3s, padding 0.3s;
@@ -36,41 +36,44 @@ header {
   box-sizing: border-box;
 }
 
-header.scrolled {
-  background-color: rgba(162,175,155,0.9);
-  padding: 3px 10px;
-}
+header.scrolled { background-color: rgba(162,175,155,0.9); }
 
+/* BLOCO NOME + SUBTÍTULO */
 header h1.title {
-  font-size: 1.5em;
+  font-size: 2em; /* apenas desktop */
   margin: 0;
-  color: #A2AF9B;
+  color: #5C3A21; /* marrom escuro */
   transition: color 0.3s;
 }
 
-header.at-top h1.title { color: #A2AF9B; }
-header.scrolled h1.title { color: #fff; }
+header.at-top h1.title { color: #5C3A21; }
+header.scrolled h1.title { color: #5C3A21; }
 
 header .subtitulo {
   font-size: 0.8em;
-  margin-left: 10px;
-  color: #fff;
+  margin-left: 0;
+  margin-top: 2px;        
+  line-height: 1.2;       
+  text-align: left;
+  color: #5C3A21; /* marrom escuro */
 }
 
-header.scrolled .subtitulo { color: #fff; }
+header.scrolled .subtitulo { color: #5C3A21; }
 
-/* Logo menor */
+.crp-arial { font-family:Arial, sans-serif; font-size:0.85em; }
+
+/* LOGO */
 .logo img {
   width: 40px;
   height: 40px;
   object-fit: contain;
+  margin-bottom:5px;
 }
 
 /* NAV CENTRALIZADA */
 header nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 5px;
+  align-self: center; /* centraliza menu horizontalmente */
 }
 
 nav ul {
@@ -79,12 +82,13 @@ nav ul {
   gap: 25px;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 nav ul li a {
   font-size: 0.85em;
   text-decoration: none;
-  color: #fff;
+  color: #5C3A21; /* marrom escuro */
   font-weight: 500;
   position: relative;
   transition: 0.3s;
@@ -97,14 +101,14 @@ nav ul li a::after {
   height: 2px;
   bottom: -3px;
   left: 0;
-  background: #fff;
+  background: #5C3A21; /* marrom escuro */
   transition: 0.3s;
 }
 
 nav ul li a:hover::after { width: 100%; }
 
 /* MAIN */
-main { padding-top: 70px; max-width:1200px; margin:auto; }
+main { padding-top: 120px; max-width:1200px; margin:auto; }
 
 /* SECTIONS */
 section { opacity:0; transform:translateY(30px); transition:0.8s; margin-bottom:60px; }
@@ -185,11 +189,15 @@ footer { display:flex; justify-content:center; align-items:center; gap:20px; pad
 
 /* RESPONSIVO HEADER MINIMALISTA - MOBILE */
 @media(max-width:768px){
-
   header {
     padding: 5px 10px;
     flex-direction: column;
     align-items: center;
+    background-color: #FAF9EE !important;
+  }
+
+  header.scrolled {
+    background-color: #FAF9EE !important;
   }
 
   .logo img {
@@ -201,12 +209,16 @@ footer { display:flex; justify-content:center; align-items:center; gap:20px; pad
   header h1.title {
     font-size: 1.3em;
     text-align: center;
+    color: #5C3A21;
   }
 
   header .subtitulo {
     font-size: 0.75em;
     margin-left: 0;
+    margin-top: 0;          
+    line-height: 1.1;       
     text-align: center;
+    color: #5C3A21;
   }
 
   header nav {
@@ -221,20 +233,13 @@ footer { display:flex; justify-content:center; align-items:center; gap:20px; pad
     align-items: center;
   }
 
-  nav ul li a {
-    font-size: 0.85em;
-  }
+  nav ul li a { font-size: 0.85em; color: #5C3A21; }
+  nav ul li a::after { background: #5C3A21; }
 
-  main {
-    padding-top: 120px;
-  }
-}
+  main { padding-top: 120px; }
 
-@media(max-width:768px){
-  .inicio-texto h2 { font-size:1.8em; }
-  .inicio-texto p { font-size:1em; }
-  .sobre-img img { max-width:280px; }
-  .servico-card, .sobre-card { padding:20px; }
+  /* WhatsApp menor no mobile */
+  .whatsapp-float { width: 40px; height: 40px; }
 }
 
 /* ANIMAÇÕES */
@@ -242,12 +247,24 @@ footer { display:flex; justify-content:center; align-items:center; gap:20px; pad
 @keyframes gradientBG { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
 /* FLUTUANTE WHATSAPP */
-.whatsapp-float { position:fixed; bottom:20px; right:20px; width:60px; height:60px; z-index:999; display:flex; align-items:center; justify-content:center; cursor:pointer; transition: transform 0.3s; }
-.whatsapp-float img { width:100%; height:100%; object-fit:contain; }
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .whatsapp-float:hover { transform: scale(1.1); }
-
-/* TEXTOS PRETOS */
-.subtitulo-preta, .menu-preto, .texto-preto { color:#000 !important; }
-
-/* CRP em Arial */
-.crp-arial { font-family:Arial, sans-serif; font-size:0.85em; }
