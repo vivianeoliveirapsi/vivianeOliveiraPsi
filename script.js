@@ -63,16 +63,22 @@ form.addEventListener("submit", async (e) => {
 });
 
 // ======================
-// Header muda ao rolar
+// Header muda ao rolar e topo menor
 // ======================
 const header = document.getElementById("header");
-window.addEventListener("scroll", ()=>{
-  if(window.scrollY > 50){
+
+function atualizarHeader() {
+  if (window.scrollY > 50) {
     header.classList.add("scrolled");
+    header.classList.remove("at-top");
   } else {
     header.classList.remove("scrolled");
+    header.classList.add("at-top");
   }
-});
+}
+
+window.addEventListener("scroll", atualizarHeader);
+window.addEventListener("load", atualizarHeader);
 
 // ======================
 // Animar seções e cards ao scroll
@@ -135,7 +141,6 @@ function fecharModal(id) {
   if(modal) modal.style.display = 'none';
 }
 
-// Fechar modal ao clicar fora do conteúdo
 window.addEventListener('click', function(e){
   const modais = document.querySelectorAll('.modal');
   modais.forEach(modal => {
