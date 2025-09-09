@@ -1,17 +1,3 @@
-/* ADIÇÃO: Ajuste do título e subtítulo pretos no topo e proximidade da lateral */
-header.at-top h1.title,
-header.at-top .subtitulo-preta {
-    color: #000 !important;
-}
-
-.header-left {
-    display: inline-block;
-    text-align: left;
-    padding-left: 5px; /* mais próximo da lateral */
-    margin-left: 0;
-}
-
-/* ==================== RESTANTE DO SEU CSS ==================== */
 @font-face {
   font-family: 'Nuptial Liberty';
   src: url('./fontes/DancingScriptVariableFont_wght.ttf') format('truetype');
@@ -45,7 +31,7 @@ header {
   position: fixed;
   top:0;
   width:100%;
-  padding: 10px 0; /* vertical mais estreito */
+  padding: 10px 0;
   text-align:justify;
   z-index:1000;
   transition: background-color 0.3s ease;
@@ -53,21 +39,28 @@ header {
 
 /* cores do header */
 header.at-top {
-  background-color: rgba(250,249,238,0.3); /* fundo claro */
+  background-color: rgba(250,249,238,0.3);
 }
 header.at-top h1.title {
-  color: #A2AF9B; /* nome verde */
+  color: #A2AF9B;
 }
 header.scrolled {
-  background-color: rgba(162,175,155,0.9); /* fundo verde */
+  background-color: rgba(162,175,155,0.9);
 }
 header.scrolled h1.title {
-  color: #fff; /* nome branco */
+  color: #fff;
 }
 
 header h1, header .subtitulo { margin:0; }
 header .subtitulo { font-size:1em; color:#fff; }
 header.scrolled .subtitulo { color:#fff; }
+
+/* AFASTAR NOME E SUBTÍTULO DA LATERAL */
+.header-left {
+  display: inline-block;
+  text-align: left;
+  padding-left: 20px;
+}
 
 /* NAV */
 nav ul { list-style:none; display:flex; justify-content:center; gap:25px; padding-top:10px;}
@@ -87,13 +80,18 @@ section.active, section.scroll-animate.visible { opacity:1; transform:translateY
   background: url('./imagens/brain_transparent.png') center / cover no-repeat fixed; 
   padding:190px 20px; 
   text-align:center; 
-  color:#fff; 
+  color:#fff; /* padrão branco para fundo parallax */
   margin-top:150px; 
 }
 
 /* INÍCIO */
 .inicio-texto h2 { font-size:2.2em; margin-bottom:20px; animation: fadeInUp 1s ease forwards; }
 .inicio-texto p { font-size:1.1em; margin-bottom:25px; animation: fadeInUp 1.2s ease forwards; }
+
+/* FORÇAR COR PRETA NO INÍCIO */
+.inicio-texto .texto-preto {
+  color: #000 !important;
+}
 
 /* BOTÕES */
 .botao {
