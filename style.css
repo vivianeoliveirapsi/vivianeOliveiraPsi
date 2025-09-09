@@ -96,7 +96,23 @@ section.active, section.scroll-animate.visible { opacity:1; transform:translateY
 
 /* SERVIÇOS */
 .servicos-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
-.servico-card { padding:25px; background:#fff; border-radius:20px; box-shadow:0 6px 18px rgba(0,0,0,0.06); transition:0.4s; }
+.servico-card { 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  padding:25px; 
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  transition:0.4s; 
+}
+
+.servico-card .botao {
+  margin-top: auto;
+  align-self: flex-start; /* ou center, se quiser centralizar */
+}
+
 .servico-card:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 12px 28px rgba(0,0,0,0.14); }
 .servico-card.destaque { background:#e6f2e6; }
 
@@ -149,7 +165,41 @@ header:not(.scrolled) nav ul li a::after {
   background: #2e8b57;
 }
 
-/* ...existing code... */
+.social-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 32px 0 0 0;
+}
+
+.social-section p {
+  margin-bottom: 12px;
+  font-size: 1.1em;
+  color: #2e8b57;
+  text-align: center;
+}
+
+.social-logos {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.social-logos .logo img {
+  width: 36px;
+  height: 36px;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.social-logos .logo img:hover {
+  transform: scale(1.12);
+}
 
 /* RESPONSIVO */
 @media(max-width:1024px){
