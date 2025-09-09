@@ -63,22 +63,22 @@ form.addEventListener("submit", async (e) => {
 });
 
 // ======================
-// Header muda ao rolar e topo menor
+// Header muda ao rolar / topo
 // ======================
 const header = document.getElementById("header");
 
-function atualizarHeader() {
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-    header.classList.remove("at-top");
-  } else {
-    header.classList.remove("scrolled");
+function updateHeaderColor() {
+  if(window.scrollY === 0){
     header.classList.add("at-top");
+    header.classList.remove("scrolled");
+  } else {
+    header.classList.remove("at-top");
+    header.classList.add("scrolled");
   }
 }
 
-window.addEventListener("scroll", atualizarHeader);
-window.addEventListener("load", atualizarHeader);
+window.addEventListener("scroll", updateHeaderColor);
+window.addEventListener("load", updateHeaderColor);
 
 // ======================
 // Animar seções e cards ao scroll
@@ -89,9 +89,7 @@ const elementInView = (el, dividend=1.2) => {
   return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
 };
 const displayScrollElement = (element) => { element.classList.add('visible'); };
-const handleScrollAnimation = () => {
-  scrollElements.forEach(el => { if(elementInView(el)) displayScrollElement(el); });
-};
+const handleScrollAnimation = () => { scrollElements.forEach(el => { if(elementInView(el)) displayScrollElement(el); }); };
 window.addEventListener('scroll', handleScrollAnimation);
 window.addEventListener('load', handleScrollAnimation);
 
@@ -141,6 +139,7 @@ function fecharModal(id) {
   if(modal) modal.style.display = 'none';
 }
 
+// Fechar modal ao clicar fora do conteúdo
 window.addEventListener('click', function(e){
   const modais = document.querySelectorAll('.modal');
   modais.forEach(modal => {
