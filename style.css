@@ -1,3 +1,17 @@
+/* ADIÇÃO: Ajuste do título e subtítulo pretos no topo e proximidade da lateral */
+header.at-top h1.title,
+header.at-top .subtitulo-preta {
+    color: #000 !important;
+}
+
+.header-left {
+    display: inline-block;
+    text-align: left;
+    padding-left: 5px; /* mais próximo da lateral */
+    margin-left: 0;
+}
+
+/* ==================== RESTANTE DO SEU CSS ==================== */
 @font-face {
   font-family: 'Nuptial Liberty';
   src: url('./fontes/DancingScriptVariableFont_wght.ttf') format('truetype');
@@ -54,13 +68,6 @@ header.scrolled h1.title {
 header h1, header .subtitulo { margin:0; }
 header .subtitulo { font-size:1em; color:#fff; }
 header.scrolled .subtitulo { color:#fff; }
-
-/* AFASTAR NOME E SUBTÍTULO DA LATERAL */
-.header-left {
-  display: inline-block;
-  text-align: left;
-  padding-left: 20px; /* ajuste a distância da lateral */
-}
 
 /* NAV */
 nav ul { list-style:none; display:flex; justify-content:center; gap:25px; padding-top:10px;}
