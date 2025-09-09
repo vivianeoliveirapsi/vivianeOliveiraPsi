@@ -1,4 +1,6 @@
-// Troque o uso de onclick no HTML por este código JS para smooth scroll:
+// ======================
+// Smooth Scroll
+// ======================
 document.querySelectorAll('nav ul li a').forEach(link => {
   link.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
@@ -10,9 +12,6 @@ document.querySelectorAll('nav ul li a').forEach(link => {
   });
 });
 
-// ======================
-// Alternar seções e Smooth Scroll
-// ======================
 function showSection(sectionId) {
   const sections = document.querySelectorAll("main section");
   sections.forEach(section => section.classList.remove("active"));
@@ -26,16 +25,11 @@ function smoothScroll(id) {
   const headerHeight = header ? header.offsetHeight : 0;
 
   if (target) {
-    // Posição do topo da seção em relação ao documento
     const targetPosition = target.offsetTop;
-
-    // Scroll até a posição ajustada pelo header
     window.scrollTo({
       top: targetPosition - headerHeight,
       behavior: 'smooth'
     });
-
-    // Atualiza a seção ativa
     showSection(id);
   }
 }
@@ -43,19 +37,17 @@ function smoothScroll(id) {
 // ======================
 // Formulário com feedback
 // ======================
-
 const form = document.getElementById("form-contato");
 
 form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // evita recarregar a página
-
-  const data = new FormData(form); // pega todos os campos do formulário
+  e.preventDefault();
+  const data = new FormData(form);
 
   try {
     const response = await fetch(form.action, {
       method: form.method,
       body: data,
-      headers: { 'Accept': 'application/json' } // pede resposta JSON
+      headers: { 'Accept': 'application/json' }
     });
 
     if (response.ok) {
@@ -108,7 +100,9 @@ function ajustarRodape(){
     footer.style.position = "absolute";
     footer.style.bottom = "0";
     footer.style.width = "100%";
-  } else { footer.style.position = "static"; }
+  } else { 
+    footer.style.position = "static"; 
+  }
 }
 window.addEventListener("load", ajustarRodape);
 window.addEventListener("resize", ajustarRodape);
@@ -128,3 +122,23 @@ cards.forEach(card => {
   });
 });
 
+// ======================
+// Modais
+// ======================
+function abrirModal(id) {
+  const modal = document.getElementById(id);
+  if(modal) modal.style.display = 'block';
+}
+
+function fecharModal(id) {
+  const modal = document.getElementById(id);
+  if(modal) modal.style.display = 'none';
+}
+
+// Fechar modal ao clicar fora do conteúdo
+window.addEventListener('click', function(e){
+  const modais = document.querySelectorAll('.modal');
+  modais.forEach(modal => {
+    if(e.target === modal) modal.style.display = 'none';
+  });
+});

@@ -19,11 +19,11 @@
   </div>
   <nav aria-label="Menu principal">
     <ul>
-      <li><a href="#inicio" onclick="smoothScroll('inicio')">Início</a></li>
-      <li><a href="#sobre" onclick="smoothScroll('sobre')">Sobre Mim</a></li>
-      <li><a href="#servicos" onclick="smoothScroll('servicos')">Serviços</a></li>
-      <li><a href="#conteudos" onclick="smoothScroll('conteudos')">Conteúdos</a></li>
-      <li><a href="#contato" onclick="smoothScroll('contato')">Contato</a></li>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre Mim</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#conteudos">Conteúdos</a></li>
+      <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
 </header>
@@ -45,25 +45,12 @@
     <h2>Sobre Mim</h2>
     <div class="sobre-container">
       <div class="sobre-texto">
-       <p>Sou Viviane Oliveira, psicóloga clínica e perita judicial. Utilizo a Terapia Cognitivo-Comportamental (TCC) para ajudar pessoas a compreenderem seus pensamentos, emoções e comportamentos. Acredito que cada história merece ser ouvida com empatia e respeito, e que mudanças reais acontecem quando aprendemos, de forma consciente, a lidar com nossos padrões internos.</p>
-    <p>Atendo adultos, adolescentes, idosos e a população LGBTQIAPN+, com foco em questões como ansiedade, estresse, depressão, dificuldades emocionais, transtornos de comportamento e desafios relacionados ao envelhecimento. Meu trabalho busca criar um <strong>espaço acolhedor e seguro</strong>, promovendo bem-estar mental, autoconhecimento, fortalecimento emocional, qualidade de vida e respeito à diversidade.</p>
-
-    <h2>Meus Valores e Princípios</h2>
-    <p>Tenho um profundo amor pela minha profissão e trabalho sempre com o objetivo de atender da melhor forma possível todas as pessoas que me procuram, considerando seus interesses e necessidades. Minha prioridade é você, oferecendo sempre o meu melhor. Saber que posso contribuir para a saúde e o bem-estar de quem confia em meu trabalho é uma grande honra e a maior recompensa da minha carreira.</p>
-
-    <h2>Minha Visão</h2>
-    <p>Acredito que a Psicologia é para todos, independentemente de gênero, idade, orientação sexual, crenças, ideologias ou nível de escolaridade. Em diferentes momentos da vida, todos nós podemos precisar de apoio psicológico. Meu objetivo é tornar o cuidado psicológico <strong>acessível, inclusivo e transformador</strong>, promovendo bem-estar e crescimento pessoal.</p>
-
-    <h2>Meu Compromisso</h2>
-    <p>Meu compromisso é manter-me constantemente atualizada nas melhores práticas psicoterapêuticas, para poder atendê-lo sempre com excelência. Busco construir uma <strong>relação de confiança</strong>, baseada em empatia, escuta ativa, respeito, compreensão genuína e aceitação incondicional, garantindo que você se sinta acolhido, seguro e confortável durante todo o processo terapêutico.</p>
-
-    <h2>Minha Missão</h2>
-    <p>Minha missão é auxiliar cada pessoa que me procura a aprimorar sua saúde mental, emocional e psicológica, promovendo bem-estar, autoconhecimento, equilíbrio e felicidade. Contribuir para que cada indivíduo viva de forma mais plena, consciente e harmoniosa é, sem dúvida, a maior realização da minha profissão.</p>
-  </div>
-
-  
-  </div>
-
+        <div class="sobre-texto-unificado">
+          <p>
+            Sou Viviane Oliveira, psicóloga clínica e perita judicial, e utilizo a Terapia Cognitivo-Comportamental (TCC) para ajudar pessoas a compreenderem seus pensamentos, emoções e comportamentos. Tenho um profundo amor pela minha profissão e trabalho sempre com o objetivo de atender da melhor forma possível todas as pessoas que me procuram, considerando seus interesses e necessidades. Minha prioridade é você, oferecendo sempre o meu melhor, e sei que contribuir para a saúde e o bem-estar de quem confia em meu trabalho é uma grande honra e a maior recompensa da minha carreira. Acredito que a Psicologia é para todos, independentemente de gênero, idade, orientação sexual, crenças, ideologias ou nível de escolaridade, e que, em diferentes momentos da vida, todos nós podemos precisar de apoio psicológico. Meu objetivo é tornar o cuidado psicológico acessível, inclusivo e transformador, promovendo bem-estar, crescimento pessoal e qualidade de vida. Meu compromisso é manter-me constantemente atualizada nas melhores práticas psicoterapêuticas, construindo uma relação de confiança baseada em empatia, escuta ativa, respeito, compreensão genuína e aceitação incondicional, garantindo que você se sinta acolhido, seguro e confortável durante todo o processo terapêutico. Minha missão é auxiliar cada pessoa que me procura a aprimorar sua saúde mental, emocional e psicológica, promovendo bem-estar, autoconhecimento, equilíbrio e felicidade, contribuindo para que cada indivíduo viva de forma mais plena, consciente e harmoniosa.
+          </p>
+        </div>
+      </div>
       <div class="sobre-img">
         <img src="imagens/mamae.png" alt="Foto da Psicóloga Viviane Oliveira sorrindo, usando óculos e blusa clara">
       </div>
@@ -166,7 +153,6 @@
     </form>
   </section>
 
-
 </main>
 
 <footer>
@@ -177,7 +163,6 @@
       <a href="https://instagram.com/vivianeoliveirapsic" target="_blank" class="logo">
         <img src="imagens/instagram.png" alt="@vivianeoliveirapsic">
       </a>
-      
     </span>
   </div>
 </footer>
@@ -217,27 +202,11 @@
   </div>
 </div>
 
-
 <!-- BOTÃO FLUTUANTE WHATSAPP -->
 <a href="https://wa.me/5599746197" target="_blank" class="whatsapp-float">
   <img src="imagens/zapzap.png" alt="WhatsApp">
 </a>
 
 <script src="script.js"></script>
-<script>
-window.addEventListener('load', function() {
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 0);
-});
-
-function abrirModal(id){ document.getElementById(id).style.display='block'; }
-function fecharModal(id){ document.getElementById(id).style.display='none'; }
-
-window.onclick = function(event){
-  if(event.target.classList.contains('modal')) event.target.style.display='none';
-}
-</script>
 </body>
 </html>
-
