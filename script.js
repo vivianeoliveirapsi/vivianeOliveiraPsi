@@ -146,3 +146,13 @@ window.addEventListener('click', function(e){
     if(e.target === modal) modal.style.display = 'none';
   });
 });
+// Animação inicial dos botões
+window.addEventListener('load', () => {
+  const botoes = document.querySelectorAll('.botao');
+  botoes.forEach((botao, index) => {
+    setTimeout(() => {
+      botao.classList.add('show');
+    }, 200 * index); // entra um por vez com 0.2s de diferença
+  });
+});
+
