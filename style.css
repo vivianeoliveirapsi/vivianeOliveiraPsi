@@ -1,0 +1,496 @@
+/* =========================================
+   FONTES
+========================================= */
+@font-face {
+  font-family: 'Nuptial Liberty';
+  src: url('fontes/DancingScriptVariableFont_wght.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background: linear-gradient(120deg, #FAF9EE, #DCCFC0, #EEEEEE);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   TÍTULOS
+========================================= */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-family: 'Nuptial Liberty';
+  font-size: 2.6em;
+  color: #A2AF9B;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 3px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgba(250, 249, 238, 0.3);
+  z-index: 1000;
+  transition: background-color 0.3s, padding 0.3s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+header.scrolled {
+  background-color: rgba(162, 175, 155, 0.9);
+}
+
+.header-center {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+}
+
+.header-logo-nome {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-header {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.texto-nome {
+  display: flex;
+  flex-direction: column;
+}
+
+header h1.title {
+  font-size: 2em;
+  margin: 0;
+  color: #5C3A21;
+  transition: color 0.3s;
+}
+
+header .subtitulo {
+  font-size: 0.8em;
+  margin-top: 2px;
+  line-height: 1.2;
+  text-align: left;
+  color: #5C3A21;
+}
+
+.crp-arial {
+  font-family: Arial, sans-serif;
+  font-size: 0.85em;
+}
+
+header.scrolled h1.title,
+header.scrolled .subtitulo {
+  color: #5C3A21;
+}
+
+/* NAV */
+header nav {
+  margin-top: 5px;
+  align-self: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav ul li a {
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #5C3A21;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: #5C3A21;
+  transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   MAIN
+========================================= */
+main {
+  padding-top: 120px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* SECTIONS */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s;
+  margin-bottom: 60px;
+}
+
+section.active,
+section.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PARALLAX INÍCIO */
+.parallax {
+  background-image: url('imagens/brain_transparent.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: ;
+  padding: 190px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.inicio-texto h2,
+.inicio-texto p {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.inicio-texto p {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+#inicio .inicio-texto h2,
+#inicio .inicio-texto p {
+  color: #000 !important;
+}
+
+/* =========================================
+   BOTÕES
+========================================= */
+.botao {
+  background-color: #A2AF9B;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 0.9em;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.botao.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.botao:hover {
+  background-color: #DCCFC0;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================
+   SOBRE
+========================================= */
+.sobre-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.sobre-texto {
+  flex: 1 1 500px;
+}
+
+.sobre-img {
+  flex: 0 0 350px;
+  text-align: center;
+}
+
+.sobre-img img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.sobre-img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.sobre-texto-unificado p {
+  text-align: justify;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* =========================================
+   CARDS E SERVIÇOS
+========================================= */
+.servicos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.servico-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 25px;
+  background: #FAF9EE;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: 0.4s;
+}
+
+.servico-card .botao {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.servico-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+.servico-card.destaque {
+  background: #DCCFC0;
+}
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+form {
+  margin-top: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #A2AF9B;
+  outline: none;
+  box-shadow: 0 0 8px rgba(162, 175, 155, 0.3);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background: #FAF9EE;
+  border-top: 1px solid #EEEEEE;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+footer .logo img,
+#form-contato .logo img,
+p + .logo img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+footer .social-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+footer .social-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+footer .social-footer a img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+/* =========================================
+   MODAIS
+========================================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: #FAF9EE;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* =========================================
+   WHATSAPP FLUTUANTE
+========================================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+@media (max-width: 1200px) {
+  main { padding: 100px 20px; }
+  .sobre-container { flex-direction: column; align-items: center; }
+  .sobre-img { max-width: 300px; margin: 0 auto; }
+  .servicos-container { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 5px 10px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF9EE !important;
+  }
+  header.scrolled { background-color: #FAF9EE !important; }
+  .logo-header { width: 35px; height: 35px; margin-bottom: 5px; }
+  header h1.title { font-size: 1.3em; text-align: center; color: #5C3A21; }
+  header .subtitulo { font-size: 0.75em; margin-top: 0; line-height: 1.1; text-align: center; color: #5C3A21; }
+  header nav { margin-top: 5px; }
+  nav ul { flex-direction: row; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  nav ul li a { font-size: 1em; }
+  main { padding-top: 120px; }
+  .whatsapp-float { width: 40px; height: 40px; }
+  footer .logo img, #form-contato .logo img, p + .logo img { width: 25px; height: 25px; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 0.9rem; line-height: 1.5; padding: 0 10px; }
+  .logo-header { width: 30px; height: 30px; }
+  header h1.title { font-size: 1.1em; }
+  nav ul { gap: 10px; }
+  nav ul li a { font-size: 0.95em; }
+  section { margin-bottom: 40px; padding: 0 5px; }
+  .sobre-container { flex-direction: column; gap: 20px; }
+  .sobre-img { flex:1; width: 100%; }
+  .sobre-img img { max-width: 100%; height: auto; }
+  .servicos-container { grid-template-columns: 1fr; gap: 15px; }
+  .servico-card { padding: 15px; }
+  .botao { font-size: 0.85em; padding: 8px 16px; }
+  footer { flex-direction: column; gap: 10px; padding: 10px; font-size: 0.85em; }
+  footer .logo img, #form-contato .logo img, p + .logo img { width: 22px; height: 22px; }
+}
