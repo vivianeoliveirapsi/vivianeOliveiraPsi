@@ -134,7 +134,7 @@ section.active, section.scroll-animate.visible { opacity:1; transform:translateY
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; /* ensures the image stays fixed */
+  background-attachment: ; /* ensures the image stays fixed */
   padding: 190px 20px;
   text-align: center;
   color: #fff;
