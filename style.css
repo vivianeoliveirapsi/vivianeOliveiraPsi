@@ -126,15 +126,20 @@ main { padding-top: 120px; max-width:1200px; margin:auto; }
 
 /* SECTIONS */
 section { opacity:0; transform:translateY(30px); transition:0.8s; margin-bottom:60px; }
-section.active, section.scroll-animate.visible { opacity:1; transform:translateY(0); }
+section.active, section.scroll-animate.visible { opacity:1; transform:translateY(0);}
 
 /* PARALLAX INÍCIO */
-.parallax { 
-  background: url('imagens/brain_transparent.png') center / cover no-repeat fixed; 
-  padding:190px 20px; 
-  text-align:center; 
-  color:#fff; 
+.parallax {
+  background-image: url('imagens/brain_transparent.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* ensures the image stays fixed */
+  padding: 190px 20px;
+  text-align: center;
+  color: #fff;
 }
+
 .inicio-texto h2, .inicio-texto p { font-size:2.2em; margin-bottom:20px; animation: fadeInUp 1s ease forwards; }
 .inicio-texto p { font-size:1.1em; margin-bottom:25px; animation: fadeInUp 1.2s ease forwards; }
 
@@ -170,7 +175,12 @@ section.active, section.scroll-animate.visible { opacity:1; transform:translateY
 .sobre-img { flex:0 0 350px; text-align:center; }
 .sobre-img img { width:100%; border-radius:20px; box-shadow:0 6px 18px rgba(0,0,0,0.06); transition:0.3s; }
 .sobre-img img:hover { transform:scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.12); }
-.sobre-texto-unificado p { text-align:justify; }
+/* ALTERAÇÃO: reduzir espaçamento entre parágrafos da seção Sobre */
+.sobre-texto-unificado p { 
+  text-align:justify; 
+  margin: 8px 0;   /* diminui o espaço entre parágrafos */
+  line-height: 1.6; /* melhora a leitura */
+}
 
 /* CARDS E SERVIÇOS */
 .servicos-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
@@ -188,7 +198,7 @@ input[type="text"], input[type="email"], textarea {
 input:focus, textarea:focus { border-color:#A2AF9B; outline:none; box-shadow:0 0 8px rgba(162,175,155,0.3); }
 
 /* FOOTER */
-footer { display:flex; justify-content:center; align-items:center; gap:20px; padding:15px 20px; background:#FAF9EE; border-top:1px solid #EEEEEE; flex-wrap:wrap; text-align:center; }
+footer { display:flex; justify-content:center; align-items:center; gap:10px; padding:15px 20px; background:#FAF9EE; border-top:1px solid #EEEEEE; flex-wrap:wrap; text-align:center; }
 
 /* ÍCONES DE REDES SOCIAIS */
 footer .logo img,
@@ -285,3 +295,28 @@ p + .logo img {
 /* Animação de entrada para botões */
 .botao { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
 .botao.show { opacity: 1; transform: translateY(0); }
+/* RODAPÉ - LINKS DE REDES SOCIAIS */
+footer .social-footer {
+  display: flex;              /* organiza links em linha */
+  justify-content: center;    /* centraliza horizontalmente */
+  align-items: center;
+  flex-wrap: wrap;            /* quebra linha se necessário */
+  gap: 15px;                  /* espaço entre cada link */
+  margin-top: 10px;
+}
+
+footer .social-footer a {
+  display: inline-flex;       /* ícone + texto como bloco flex */
+  align-items: center;        /* alinha ícone e texto verticalmente */
+  gap: 6px;                   /* distância entre ícone e texto */
+  text-decoration: none;      /* remove underline */
+  color: #333;                /* cor do texto */
+  font-weight: 600;           /* deixa o texto em negrito */
+}
+
+footer .social-footer a img {
+  width: 25px;                /* tamanho do ícone */
+  height: 25px;
+  object-fit: contain;
+}
+
